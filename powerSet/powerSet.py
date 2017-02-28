@@ -25,3 +25,5 @@ print(power_set(n))
 # print len(lis)                #show shuzu number
 
 新改动
+
+士兵
