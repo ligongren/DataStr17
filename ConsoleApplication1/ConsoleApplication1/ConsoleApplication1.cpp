@@ -17,7 +17,3 @@ int main()
 	system("pause");
     return 0;
 }
-
-//实验在vs里推送更新
-
-shiyanzaivslifasonggnegxin
