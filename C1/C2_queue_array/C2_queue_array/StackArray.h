@@ -3,8 +3,8 @@
 class StackArray
 {
 public:
-	StackArray();
-	~StackArray();
+					StackArray();
+					~StackArray();
 	bool			empty() const;
 	bool			full() const;
 	error_code		get_top(ElementType &x) const;
@@ -17,10 +17,12 @@ private:
 
 StackArray::StackArray()
 {
+	count = 0;
 }
 
 StackArray::~StackArray()
 {
+	return;
 }
 
 //inline bool stackarray::empty() const
@@ -42,7 +44,18 @@ bool StackArray::full() const
 
 error_code StackArray::get_top(ElementType &x) const
 {
-
+	if (empty()){
+		error_code underflow;
+		underflow.message="underflow";
+		return underflow;
+	}
+	else
+	{
+		error_code success;
+		success.message() = "success";
+		x = data[count - 1];
+		return ;
+	}
 }
 error_code StackArray::push(const ElementType &x)
 {

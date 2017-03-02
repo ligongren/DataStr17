@@ -3,14 +3,13 @@
 
 #include "stdafx.h"
 
-#define ElementType int
+#define ElementType char
 #define maxlen 100
 
 #include "StackArray.h"
 
 int main()
 {
-
 
 	cout << endl;
 	system("pause");
