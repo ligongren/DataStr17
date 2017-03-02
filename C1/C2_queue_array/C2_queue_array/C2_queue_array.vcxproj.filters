@@ -27,6 +27,9 @@
     <ClInclude Include="StackArray.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="error_code_s.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

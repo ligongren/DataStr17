@@ -1,5 +1,7 @@
 #pragma once
 
+#include "error_code_s.h"
+
 class StackArray
 {
 public:
@@ -7,9 +9,9 @@ public:
 					~StackArray();
 	bool			empty() const;
 	bool			full() const;
-	error_code		get_top(ElementType &x) const;
-	error_code		push(const ElementType &x);
-	error_code		pop();
+	error_code_s	get_top(ElementType &x) const;
+	error_code_s	push(const ElementType &x);
+	error_code_s	pop();
 private:
 	int				count;
 	ElementType		data[maxlen];
@@ -19,49 +21,75 @@ StackArray::StackArray()
 {
 	count = 0;
 }
-
 StackArray::~StackArray()
 {
-	return;
 }
-
 //inline bool stackarray::empty() const
 //{
 //	return false;
 //}
-
 bool StackArray::empty() const
 {
-	return true;
+	if (count==0)
+		return true;
+	else
+		return false;
 }
-
-
 bool StackArray::full() const
 {
-	return true;
+	if (count>=maxlen)
+		return true;
+	else
+		return false;
 }
-
-
-error_code StackArray::get_top(ElementType &x) const
+error_code_s StackArray::get_top(ElementType &x) const
 {
-	if (empty()){
-		error_code underflow;
-		underflow.message="underflow";
+	if (empty())
+	{
+		error_code_s underflow;
+		underflow.write(1);
 		return underflow;
 	}
 	else
 	{
-		error_code success;
-		success.message() = "success";
 		x = data[count - 1];
-		return ;
+		error_code_s success;
+		success.write(0);
+		return success;
 	}
 }
-error_code StackArray::push(const ElementType &x)
+error_code_s StackArray::push(const ElementType &x)
 {
+	if (full())
+	{
+		error_code_s overflow;
+		overflow.write(2);
+		return overflow;
+	}
+	else
+	{
+		count++;
+		data[count - 1] = x;
 
+		error_code_s success;
+		success.write(0);
+		return success;
+	}
 }
-error_code StackArray::pop()
+error_code_s StackArray::pop()
 {
-	
+	if (empty())
+	{
+		error_code_s underflow;
+		underflow.write(2);
+		return underflow;
+	}
+	else
+	{
+		count--;
+
+		error_code_s success;
+		success.write(0);
+		return success;
+	}	
 }
