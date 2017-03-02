@@ -23,3 +23,4 @@ print(power_set(n))
 
 # lis.extend('d')            #show all set in set
 # print len(lis)             #show shuzu number
+# 第一次课课后作业
