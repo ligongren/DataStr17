@@ -6,68 +6,53 @@
 #define ElementType int
 #define maxlen 100
 
-
-#define numPou 0
-
-#define numPlus 1
-#define numSub 2
-
-#define numMul 3
-#define numDiv 4
-
-#define numLef 5
-#define numRig 6
-
-//#include "getNumber.h"
+#include "charToNum.h"
+#include "getNumber.h"
 #include "error_code_s.h"
 #include "StackArray.h"
 
 int main()
 {
-
-	StackArray operationalCharacter;
+	StackArray opeChar;
 	StackArray number;
 
-	char inArray[]="#4+5#";
+	char inArray[]="#4+5#";	
+
+	int temp = charToNum('#');			//存储上一个字符的优先级
+	bool popLef = false;				//存储左括号是否应该出栈
 
 	for (int i = 0; i < strlen(inArray); i++)
 	{
+		//当字符为数字时，直接入栈
 		if ('0' <= inArray[i] && inArray[i] <= '9')
 		{
-			//getNumber(&number, inArray[i]);
-			number.push(inArray[i]-'0');
+			number.push(inArray[i] - '0');
 		}
+
+		//当字符为运算符时，与上一个运算符的优先级比较
+		//若小于等于上一个，则入栈
+		//若大于上一个，则判断下一个是否为数字
+			//如果是则进行运算
+			//如果不是则入栈现在的字符
 		else
 		{
-			switch (inArray[i])
+			while (true)
 			{
-			default:
-				break;
-			case '#':
-				operationalCharacter.push(numPou);
-				break;
-			case '+':
-				operationalCharacter.push(numPou);
-				break;
-			case '-':
-				operationalCharacter.push(numPou);
-				break;
-			case '*':
-				operationalCharacter.push(numPou);
-				break;
-			case '/':
-				operationalCharacter.push(numPou);
-				break;
+				int nowOpe;
+				opeChar.get_top(nowOpe);
+				if (inArray[i] == ')')
+					popLef = true;
+				if (nowOpe == numLef && popLef == true)
+					
 			}
-			operationalCharacter.push(inArray[i]);
-		}
-		while (true)
-		{
-
+			opeChar.push(charToNum(inArray[i]));
 		}
 	}
 
-	cout << endl;
+	int y;
+	opeChar.get_top(y);
+	cout << y << endl;
+	
 	system("pause");
 	return 0;
 }
