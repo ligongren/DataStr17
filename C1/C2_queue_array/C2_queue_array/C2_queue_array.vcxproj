@@ -152,6 +152,7 @@
     <ClInclude Include="error_code_s.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="getNumber.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
