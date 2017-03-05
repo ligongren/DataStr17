@@ -2,14 +2,14 @@
 
 #define numPou	0
 
-#define numPlus	1
-#define numSub	2
+#define numPlus	3
+#define numSub	4
 
-#define numMul	5
-#define numDiv	6
+#define numMul	7
+#define numDiv	8
 
 #define numLef	10
-#define numRig	11
+#define numRig	-1
 
 int charToNum(char x)
 {
@@ -39,4 +39,5 @@ int charToNum(char x)
 		return numRig;
 		break;
 	}
+	return 0;
 }
