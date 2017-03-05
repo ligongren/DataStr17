@@ -6,10 +6,9 @@
 #define ElementType int
 #define maxlen 100
 
-#include "execute.h"
-#include "charToNum.h"
 #include "error_code_s.h"
 #include "StackArray.h"
+#include "charToNum.h"
 
 int main()
 {
@@ -78,11 +77,6 @@ int main()
 						number.push(a / b);
 						break;
 					}
-					/*opeChar.pop();
-					opeChar.get_top(topLev);
-					opeChar.pop();
-					opeChar.get_top(lastLev);
-					opeChar.push(topLev);*/
 					opeChar.pop();
 					if (opeChar.empty())	break;
 					opeChar.get_top(topLev);
