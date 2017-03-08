@@ -7,6 +7,7 @@
 #define maxLen 100
 
 #include "error_code_s.h"
+#include "linkedQueues.h"
 #include "queueArray.h"
 
 int main()

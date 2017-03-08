@@ -7,13 +7,14 @@
 #define maxlen 100
 
 #include "error_code_s.h"
-#include "StackArray.h"
+//#include "StackArray.h"
+#include "linkedList.h"
 #include "charToNum.h"
 
 int main()
 {
-	StackArray opeChar;
-	StackArray number;
+	linLis opeChar;
+	linLis number;
 
 	char inArray[]="#1+5*(2+3)*6/2-4#";	
 
