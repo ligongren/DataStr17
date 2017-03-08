@@ -7,7 +7,7 @@
 #define maxlen 100
 
 #include "error_code_s.h"
-//#include "StackArray.h"
+#include "StackArray.h"
 #include "linkedList.h"
 #include "charToNum.h"
 

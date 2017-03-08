@@ -71,9 +71,10 @@ error_code_s linLis::pop()
 		return underflow;
 
 	linLisNod* temp;
-	temp = top->next;
-	top->next = temp->next;
+	temp = top;
+	top = top->next;
 	delete temp;
+	
 	count--;
 	return success;
 }
