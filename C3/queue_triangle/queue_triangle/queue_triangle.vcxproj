@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="error_code_s.h" />
+    <ClInclude Include="linkedListQueue.h" />
     <ClInclude Include="linkedQueues.h" />
     <ClInclude Include="queueArray.h" />
     <ClInclude Include="stdafx.h" />
