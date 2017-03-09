@@ -1,8 +1,8 @@
 #pragma once
 struct queueLL
 {
-	queueLL* next;
 	elementType data;
+	queueLL* next;
 };
 
 class queue
@@ -11,7 +11,7 @@ public:
 	queue();
 	~queue();
 	bool empty()const;
-	error_code_s getFront(elementType &x)const;
+	error_code_s get_front(elementType &x)const;
 	error_code_s append(const elementType x);
 	error_code_s serve();
 
@@ -41,14 +41,35 @@ bool queue::empty()const
 	return count == 0;
 }
 
-error_code_s queue::getFront(elementType &x)const
+error_code_s queue::get_front(elementType &x)const
 {
-
+	if (!empty())
+	{
+		x = front->next->data;
+		error_code_s success;
+		success.write(0);
+		return success;		
+	}
+	else
+	{
+		error_code_s overflow;
+		overflow.write(1);
+		return overflow;
+	}
 }
 
 error_code_s queue::append(const elementType x)
 {
+	queueLL* s;
+	s = new queueLL;
+	s->data = x;
+	s->next = front->next;
+	front->next = s;
+	count++;
 
+	error_code_s success;
+	success.write(0);
+	return success;
 }
 
 error_code_s queue::serve()
@@ -62,9 +83,10 @@ error_code_s queue::serve()
 	else
 	{
 		queueLL* temp;
-		temp = front;
+		temp = front->next->next;
 		delete front->next;
-		front = temp;
+		front->next = temp;
+		count--;
 		error_code_s success;
 		success.write(0);
 		return success;
