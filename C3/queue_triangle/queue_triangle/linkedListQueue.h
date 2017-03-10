@@ -63,8 +63,9 @@ error_code_s queue::append(const elementType x)
 	queueLL* s;
 	s = new queueLL;
 	s->data = x;
-	s->next = front->next;
-	front->next = s;
+	rear->next = s;
+	s->next = NULL;
+	rear = s;
 	count++;
 
 	error_code_s success;
@@ -82,6 +83,15 @@ error_code_s queue::serve()
 	}
 	else
 	{
+		if (front->next->next == NULL)
+		{
+			delete front->next;
+			rear = front;
+			count--;
+			error_code_s success;
+			success.write(0);
+			return success;
+		}
 		queueLL* temp;
 		temp = front->next->next;
 		delete front->next;
