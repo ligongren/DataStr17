@@ -85,31 +85,43 @@ void douLinLis::add(elementType x)
 	rear->prior->next = temp;
 	temp->next = head->next;
 	rear->prior = temp;
+	head->next->prior = temp;
 	count++;
 	return;
 }
 
 void douLinLis::reverse()
 {
-	//dunode *execute;					//正在执行逆置的元素的地址
+	dunode *temp;
+	temp = new dunode;
+
+	dunode *execute;						//正在执行逆置的元素的地址
 	//dunode *last;							//上一个元素地址
 
-	//execute = head->next;			//从第一个元素开始执行
+	execute = head->next;				//从第一个元素开始执行
 	//last = rear->next;						//上一个变量默认为rear元素
 
-	//dunode *temp;
+	do
+	{
+		temp->prior = execute->prior;
+		temp->next = execute->next;
 
-	//while (execute->next != rear->next)
-	//{
-	//	temp = execute->next;
+		execute->prior = temp->next;
+		execute->next = temp->prior;
+		 
+		execute = temp->next;
 	//	execute->next = last;
 	//	last = execute;
 	//	execute = temp;
-	//}
+	} while (execute != head->next);
 	//execute->next = last;
 	//head->next->next = rear;
 	//temp = head->next;
-	//head->next = rear;
+	head->prior = rear->prior;
+	rear->next = head->next;
+
+	rear->prior = rear->next;
+	head->next = head->prior;
 	//rear = temp;
 	return;
 }
@@ -119,13 +131,15 @@ void douLinLis::show()
 	dunode *execute;
 	execute = head->next;
 	cout << execute->data << '	' << execute << endl;
-	while (execute != rear->prior->prior)
+	while (execute != rear->prior)
 	{
 		execute = execute->next;
 		cout << execute->data << '	' << execute << endl;
 	}
+	
+	cout << head->next->prior->data << endl;
+	cout << rear->prior->next->data << endl;
 
-	cout<<endl;
 	return;
 }
 

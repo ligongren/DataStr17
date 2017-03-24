@@ -14,7 +14,7 @@ int main()
 {
 	elementType x=0;				//用于存储待输入的元素
 	douLinLis linLis;					//实例化逆置链表类
-	while (x!=-1)
+	while (x!=5)
 	{
 		cin >> x;
 		linLis.add(x);
