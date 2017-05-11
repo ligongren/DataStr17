@@ -24,10 +24,10 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ex2.h">
+    <ClInclude Include="hTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="hTree.h">
+    <ClInclude Include="tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
