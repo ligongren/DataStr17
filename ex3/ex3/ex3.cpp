@@ -1,7 +1,7 @@
 // ex3.cpp : 定义控制台应用程序的入口点。
 //
 
-//程序功能：实现哈夫曼树
+//程序功能：输入一串小写字母，实现其的哈夫曼编码，并输出哈夫曼编码和逆向生成的字符串
 
 #include "stdafx.h"
 
@@ -13,15 +13,33 @@
 int main()
 {
 	hTree tree;
-	int a[] = { 3,6,8,10,4,5,12,18 };
+	int a[26] = { 0 };
+	char b[200];
+
+	cin >> b;
+
+	for (int i = 0; i < sizeof(b) / sizeof(b[0]); i++)
+	{
+		a[b[i] - 'a']++;
+	}
+
+	/*while ('a' <= b&&b <= 'z')
+	{
+		a[b - 'a']++;
+		cin >> b; 
+	}*/
+
 	for (int i = 0; i < sizeof(a) / sizeof(a[0]); i++)
 	{
-		tree.in(a[i]);
+		tree.in(a[i],'a'+a[i]);
 	}
-	//tree.build();
-	//tree.out();
 
-	system("pause");
+	tree.build();
+	
+	tree.outNumbers(b);
+
+	tree.outCharStr();
+
+	//system("pause");
     return 0;
 }
-

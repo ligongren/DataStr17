@@ -24,15 +24,12 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="hTree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ex3.cpp">
+    <ClCompile Include="ex3_2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
